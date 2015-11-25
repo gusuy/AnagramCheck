@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */; };
+		CCE5E0171C067D8200FA10F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0161C067D8200FA10F2 /* ViewController.swift */; };
+		CCE5E01A1C067D8200FA10F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E0181C067D8200FA10F2 /* Main.storyboard */; };
+		CCE5E01C1C067D8200FA10F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E01B1C067D8200FA10F2 /* Images.xcassets */; };
+		CCE5E01F1C067D8200FA10F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */; };
+		CCE5E02B1C067D8300FA10F2 /* AnagramCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E02A1C067D8300FA10F2 /* AnagramCheckTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCE5E0251C067D8300FA10F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCE5E0071C067D8200FA10F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCE5E00E1C067D8200FA10F2;
+			remoteInfo = AnagramCheck;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CCE5E00F1C067D8200FA10F2 /* AnagramCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnagramCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCE5E0131C067D8200FA10F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCE5E0161C067D8200FA10F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCE5E0191C067D8200FA10F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CCE5E01B1C067D8200FA10F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CCE5E01E1C067D8200FA10F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CCE5E0241C067D8300FA10F2 /* AnagramCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnagramCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCE5E0291C067D8300FA10F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCE5E02A1C067D8300FA10F2 /* AnagramCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnagramCheckTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCE5E00C1C067D8200FA10F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCE5E0211C067D8300FA10F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCE5E0061C067D8200FA10F2 = {
+			isa = PBXGroup;
+			children = (
+				CCE5E0111C067D8200FA10F2 /* AnagramCheck */,
+				CCE5E0271C067D8300FA10F2 /* AnagramCheckTests */,
+				CCE5E0101C067D8200FA10F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCE5E0101C067D8200FA10F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E00F1C067D8200FA10F2 /* AnagramCheck.app */,
+				CCE5E0241C067D8300FA10F2 /* AnagramCheckTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCE5E0111C067D8200FA10F2 /* AnagramCheck */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */,
+				CCE5E0161C067D8200FA10F2 /* ViewController.swift */,
+				CCE5E0181C067D8200FA10F2 /* Main.storyboard */,
+				CCE5E01B1C067D8200FA10F2 /* Images.xcassets */,
+				CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */,
+				CCE5E0121C067D8200FA10F2 /* Supporting Files */,
+			);
+			path = AnagramCheck;
+			sourceTree = "<group>";
+		};
+		CCE5E0121C067D8200FA10F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E0131C067D8200FA10F2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CCE5E0271C067D8300FA10F2 /* AnagramCheckTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E02A1C067D8300FA10F2 /* AnagramCheckTests.swift */,
+				CCE5E0281C067D8300FA10F2 /* Supporting Files */,
+			);
+			path = AnagramCheckTests;
+			sourceTree = "<group>";
+		};
+		CCE5E0281C067D8300FA10F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5E0291C067D8300FA10F2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCE5E00E1C067D8200FA10F2 /* AnagramCheck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCE5E02E1C067D8300FA10F2 /* Build configuration list for PBXNativeTarget "AnagramCheck" */;
+			buildPhases = (
+				CCE5E00B1C067D8200FA10F2 /* Sources */,
+				CCE5E00C1C067D8200FA10F2 /* Frameworks */,
+				CCE5E00D1C067D8200FA10F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnagramCheck;
+			productName = AnagramCheck;
+			productReference = CCE5E00F1C067D8200FA10F2 /* AnagramCheck.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCE5E0231C067D8300FA10F2 /* AnagramCheckTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCE5E0311C067D8300FA10F2 /* Build configuration list for PBXNativeTarget "AnagramCheckTests" */;
+			buildPhases = (
+				CCE5E0201C067D8300FA10F2 /* Sources */,
+				CCE5E0211C067D8300FA10F2 /* Frameworks */,
+				CCE5E0221C067D8300FA10F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCE5E0261C067D8300FA10F2 /* PBXTargetDependency */,
+			);
+			name = AnagramCheckTests;
+			productName = AnagramCheckTests;
+			productReference = CCE5E0241C067D8300FA10F2 /* AnagramCheckTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCE5E0071C067D8200FA10F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Gus Uy";
+				TargetAttributes = {
+					CCE5E00E1C067D8200FA10F2 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					CCE5E0231C067D8300FA10F2 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = CCE5E00E1C067D8200FA10F2;
+					};
+				};
+			};
+			buildConfigurationList = CCE5E00A1C067D8200FA10F2 /* Build configuration list for PBXProject "AnagramCheck" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCE5E0061C067D8200FA10F2;
+			productRefGroup = CCE5E0101C067D8200FA10F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCE5E00E1C067D8200FA10F2 /* AnagramCheck */,
+				CCE5E0231C067D8300FA10F2 /* AnagramCheckTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCE5E00D1C067D8200FA10F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE5E01A1C067D8200FA10F2 /* Main.storyboard in Resources */,
+				CCE5E01F1C067D8200FA10F2 /* LaunchScreen.xib in Resources */,
+				CCE5E01C1C067D8200FA10F2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCE5E0221C067D8300FA10F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCE5E00B1C067D8200FA10F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE5E0171C067D8200FA10F2 /* ViewController.swift in Sources */,
+				CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCE5E0201C067D8300FA10F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE5E02B1C067D8300FA10F2 /* AnagramCheckTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCE5E0261C067D8300FA10F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCE5E00E1C067D8200FA10F2 /* AnagramCheck */;
+			targetProxy = CCE5E0251C067D8300FA10F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CCE5E0181C067D8200FA10F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCE5E0191C067D8200FA10F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCE5E01E1C067D8200FA10F2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCE5E02C1C067D8300FA10F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCE5E02D1C067D8300FA10F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCE5E02F1C067D8300FA10F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnagramCheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CCE5E0301C067D8300FA10F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnagramCheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CCE5E0321C067D8300FA10F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnagramCheckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnagramCheck.app/AnagramCheck";
+			};
+			name = Debug;
+		};
+		CCE5E0331C067D8300FA10F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnagramCheckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnagramCheck.app/AnagramCheck";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCE5E00A1C067D8200FA10F2 /* Build configuration list for PBXProject "AnagramCheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCE5E02C1C067D8300FA10F2 /* Debug */,
+				CCE5E02D1C067D8300FA10F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCE5E02E1C067D8300FA10F2 /* Build configuration list for PBXNativeTarget "AnagramCheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCE5E02F1C067D8300FA10F2 /* Debug */,
+				CCE5E0301C067D8300FA10F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CCE5E0311C067D8300FA10F2 /* Build configuration list for PBXNativeTarget "AnagramCheckTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCE5E0321C067D8300FA10F2 /* Debug */,
+				CCE5E0331C067D8300FA10F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCE5E0071C067D8200FA10F2 /* Project object */;
+}
