@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCD0D1801C08212D00E792A1 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = CCD0D17F1C08212D00E792A1 /* words.txt */; };
+		CCD0D1821C0824BC00E792A1 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0D1811C0824BC00E792A1 /* StreamReader.swift */; };
 		CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */; };
-		CCE5E0171C067D8200FA10F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0161C067D8200FA10F2 /* ViewController.swift */; };
+		CCE5E0171C067D8200FA10F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0161C067D8200FA10F2 /* MainViewController.swift */; };
 		CCE5E01A1C067D8200FA10F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E0181C067D8200FA10F2 /* Main.storyboard */; };
 		CCE5E01C1C067D8200FA10F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E01B1C067D8200FA10F2 /* Images.xcassets */; };
 		CCE5E01F1C067D8200FA10F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */; };
 		CCE5E02B1C067D8300FA10F2 /* AnagramCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E02A1C067D8300FA10F2 /* AnagramCheckTests.swift */; };
+		CCE5E0351C0684F500FA10F2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0341C0684F500FA10F2 /* ResultViewController.swift */; };
+		CCE5E0371C06900600FA10F2 /* AnagramCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0361C06900600FA10F2 /* AnagramCheck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +30,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CCD0D17F1C08212D00E792A1 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		CCD0D1811C0824BC00E792A1 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 		CCE5E00F1C067D8200FA10F2 /* AnagramCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnagramCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE5E0131C067D8200FA10F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCE5E0161C067D8200FA10F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCE5E0161C067D8200FA10F2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CCE5E0191C067D8200FA10F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCE5E01B1C067D8200FA10F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CCE5E01E1C067D8200FA10F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CCE5E0241C067D8300FA10F2 /* AnagramCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnagramCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE5E0291C067D8300FA10F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE5E02A1C067D8300FA10F2 /* AnagramCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnagramCheckTests.swift; sourceTree = "<group>"; };
+		CCE5E0341C0684F500FA10F2 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		CCE5E0361C06900600FA10F2 /* AnagramCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnagramCheck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +85,11 @@
 		CCE5E0111C067D8200FA10F2 /* AnagramCheck */ = {
 			isa = PBXGroup;
 			children = (
-				CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */,
-				CCE5E0161C067D8200FA10F2 /* ViewController.swift */,
+				CCE5E0161C067D8200FA10F2 /* MainViewController.swift */,
+				CCE5E0341C0684F500FA10F2 /* ResultViewController.swift */,
 				CCE5E0181C067D8200FA10F2 /* Main.storyboard */,
-				CCE5E01B1C067D8200FA10F2 /* Images.xcassets */,
-				CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */,
+				CCE5E0361C06900600FA10F2 /* AnagramCheck.swift */,
+				CCD0D1811C0824BC00E792A1 /* StreamReader.swift */,
 				CCE5E0121C067D8200FA10F2 /* Supporting Files */,
 			);
 			path = AnagramCheck;
@@ -90,6 +98,10 @@
 		CCE5E0121C067D8200FA10F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCD0D17F1C08212D00E792A1 /* words.txt */,
+				CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */,
+				CCE5E01B1C067D8200FA10F2 /* Images.xcassets */,
+				CCE5E01D1C067D8200FA10F2 /* LaunchScreen.xib */,
 				CCE5E0131C067D8200FA10F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -156,7 +168,9 @@
 		CCE5E0071C067D8200FA10F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Gus Uy";
 				TargetAttributes = {
 					CCE5E00E1C067D8200FA10F2 = {
@@ -194,6 +208,7 @@
 			files = (
 				CCE5E01A1C067D8200FA10F2 /* Main.storyboard in Resources */,
 				CCE5E01F1C067D8200FA10F2 /* LaunchScreen.xib in Resources */,
+				CCD0D1801C08212D00E792A1 /* words.txt in Resources */,
 				CCE5E01C1C067D8200FA10F2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE5E0171C067D8200FA10F2 /* ViewController.swift in Sources */,
+				CCD0D1821C0824BC00E792A1 /* StreamReader.swift in Sources */,
+				CCE5E0171C067D8200FA10F2 /* MainViewController.swift in Sources */,
 				CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */,
+				CCE5E0371C06900600FA10F2 /* AnagramCheck.swift in Sources */,
+				CCE5E0351C0684F500FA10F2 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +294,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -344,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnagramCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,6 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnagramCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -372,6 +393,7 @@
 				);
 				INFOPLIST_FILE = AnagramCheckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnagramCheck.app/AnagramCheck";
 			};
@@ -387,6 +409,7 @@
 				);
 				INFOPLIST_FILE = AnagramCheckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnagramCheck.app/AnagramCheck";
 			};
@@ -411,6 +434,7 @@
 				CCE5E0301C067D8300FA10F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCE5E0311C067D8300FA10F2 /* Build configuration list for PBXNativeTarget "AnagramCheckTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +443,7 @@
 				CCE5E0331C067D8300FA10F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
