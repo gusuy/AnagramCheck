@@ -9,12 +9,11 @@
 import Foundation
 
 class AnagramCheck {
-    // FIXME: - "Science" prints 4 times
     
     var word = String()             // stores entered word
     var anagrams = [String]()       // holds the resulting anagrams if any
     var isWord = false              // changes to true if string entered is a word
-    var wordList = [String]()       // Holds list of English words
+    var wordList = [String]()       // Holds list of all English words
     
     
     // Permute all possible letter orders using recursion
@@ -22,12 +21,14 @@ class AnagramCheck {
         let stringSize = s2.characters.count
         if stringSize < 1 {
             if checkWord(s1) {
-                // If it's the original word, don't include in list of anagrams
-                if word == s1 {
-                    isWord = true
-                }
-                else {
-                    anagrams.append(s1)
+                if !anagrams.contains(s1) {
+                    // If it's the original word, don't include in list of anagrams
+                    if word == s1 {
+                        isWord = true
+                    }
+                    else {
+                        anagrams.append(s1)
+                    }
                 }
             }
         }
