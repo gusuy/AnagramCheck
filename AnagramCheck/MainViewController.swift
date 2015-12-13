@@ -67,7 +67,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // Passes this instance of AnagramCheck to dest VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        anagramCheck.word = wordTextField.text!
+        anagramCheck.word = wordTextField.text!.lowercaseString
         
         if let identifier = segue.identifier {
             switch identifier {
