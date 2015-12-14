@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    // TODO: May make cells clickable, show definition
+    // May make cells clickable, show definition
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultLabel: UILabel!
