@@ -88,22 +88,26 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // If user tries to swipe with no text, deny segue and display message
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        // Check for empty text field
         if (wordTextField.text == "") {
-            // TODO: Refine word requirements
             alert.message = "Enter a word"
             presentViewController(alert, animated: true, completion: nil)
             
             return false
         }
-        
-        else {
-            let range = wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            if range != nil {
-                alert.message = "No spaces allowed"
-                presentViewController(alert, animated: true, completion: nil)
-                
-                return false
-            }
+        // Check for spaces
+        else if wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) != nil{
+            alert.message = "No spaces allowed"
+            presentViewController(alert, animated: true, completion: nil)
+            
+            return false
+        }
+        // Check for non letter characters
+        else if let _ = wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet().invertedSet) {
+            alert.message = "Only letters allowed"
+            presentViewController(alert, animated: true, completion: nil)
+            
+            return false
         }
 
         return true
