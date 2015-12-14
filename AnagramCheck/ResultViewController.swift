@@ -57,6 +57,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    
     // MARK: - UITableViewDelegate Methods
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,5 +76,4 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
-
 }

@@ -10,9 +10,9 @@ import Foundation
 
 class AnagramCheck {
     
-    var word = String()             // stores entered word
-    var anagrams = [String]()       // holds the resulting anagrams if any
-    var isWord = false              // changes to true if string entered is a word
+    var word = String()             // Stores user input
+    var anagrams = [String]()       // Holds the resulting anagrams if any
+    var isWord = false              // Set to true if user input is a valid word
     var wordList = [String]()       // Holds list of all English words
     
     
@@ -78,6 +78,7 @@ class AnagramCheck {
     
     // MARK: - Extra code
     
+    // This function checks the word directly with the txt file - skips loading all words into an array
     // Checks if word is in the text file (list of English words)
     //    func checkWord (var word: String) -> Bool {
     //        var filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")

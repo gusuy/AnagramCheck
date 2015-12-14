@@ -112,7 +112,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         // Check for non letter characters
-        else if let _ = wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet().invertedSet) {
+        else if wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet().invertedSet) != nil {
             alert.message = "Only letters allowed"
             presentViewController(alert, animated: true, completion: nil)
             
