@@ -9,15 +9,16 @@
 import UIKit
 
 class MainViewController: UIViewController, UITextFieldDelegate {
-    // TODO: Add text input restrictions and checks - restrict spaces, only words for now, no phrases
+    // May add phrase evaluation
     // TODO: Optimize for larger words - fastest way to get all permutations of word
     
     @IBOutlet weak var wordTextField: UITextField!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!        // Constraint of bottom label to move up with keyboard
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!    // Constraint of bottom label to move up with keyboard
     
     var anagramCheck = AnagramCheck()
     var alert = UIAlertController(title: "Error", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
     var originalBottomConstraintConstant = CGFloat()
+    var keyboardIsShown = false                                 // Tracks state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
     
     
     override func viewDidLoad() {
@@ -41,20 +42,28 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // Move bottom label up when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
-        let keyboardFrame: CGRect = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
-        UIView.animateWithDuration(0.1, animations: {
-            self.bottomConstraint.constant += keyboardFrame.size.height
-            self.view.layoutIfNeeded()
-        })
+        if !keyboardIsShown {
+            keyboardIsShown = true
+
+            let keyboardFrame: CGRect = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            
+            UIView.animateWithDuration(0, animations: {
+                self.bottomConstraint.constant += keyboardFrame.size.height
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     // Return bottom label when keyboard hides
     func keyboardWillHide(notification: NSNotification) {
-        UIView.animateWithDuration(0.1, animations: {
-            self.bottomConstraint.constant = self.originalBottomConstraintConstant
-            self.view.layoutIfNeeded()
-        })
+        if keyboardIsShown {
+            keyboardIsShown = false
+            
+            UIView.animateWithDuration(0, animations: {
+                self.bottomConstraint.constant = self.originalBottomConstraintConstant
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     // Hide keyboard when view is touched
@@ -86,7 +95,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // If user tries to swipe with no text, deny segue and display message
+    // If user tries to input invalid string, deny segue and display message
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         // Check for empty text field
         if (wordTextField.text == "") {
