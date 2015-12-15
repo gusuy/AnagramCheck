@@ -153,6 +153,7 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LYB-Ff-Nt8" firstAttribute="trailing" secondItem="bIp-dY-rCN" secondAttribute="trailing" id="13b-15-ZoR"/>
                             <constraint firstItem="Arw-97-QCt" firstAttribute="centerX" secondItem="LYB-Ff-Nt8" secondAttribute="centerX" id="1As-Mp-6b1"/>
@@ -252,6 +253,9 @@
                                 <exclude reference="uMR-K5-g58"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="H4c-3e-aeq" appends="YES" id="nwR-Yn-fvh"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="foz-IO-S1n"/>
                     <connections>
@@ -261,6 +265,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fE1-LT-1pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="H4c-3e-aeq">
+                    <connections>
+                        <action selector="goBack:" destination="XWC-NX-QjR" id="2dZ-yJ-DaK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1837" y="292"/>
         </scene>

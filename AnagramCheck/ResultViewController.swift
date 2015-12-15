@@ -58,6 +58,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    // To have swipe-to-previous view controller work on the UITableView
+    @IBAction func goBack(sender: UISwipeGestureRecognizer) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     // MARK: - UITableViewDelegate Methods
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
