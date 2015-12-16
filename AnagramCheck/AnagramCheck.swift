@@ -42,10 +42,9 @@ class AnagramCheck {
     
     // TODO: Remove this and implement hash table for faster checks
     // Iterative binary search to check if word exists
-    private func checkWord (var word: String) -> Bool {
+    private func checkWord (word: String) -> Bool {
         var first = 0
         var last = wordList.count - 1
-        word += "\r"                    // Add this because of nature of txt file
         
         while first <= last {
             let mid = (first + last) / 2
@@ -79,28 +78,5 @@ class AnagramCheck {
         }
     }
     
-    
-    // MARK: - Extra code
-    
-    // This function checks the word directly with the txt file - skips loading all words into an array
-    // Checks if word is in the text file (list of English words)
-    //    func checkWord (var word: String) -> Bool {
-    //        var filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
-    //        if let streamReader = StreamReader(path: filePath!) {
-    //            defer {
-    //                streamReader.close()
-    //            }
-    //            word += "\r"            // add this because of nature of this particular text file
-    //            while let line = streamReader.nextLine() {
-    //                if word == line {
-    //                    return true
-    //                }
-    //            }
-    //        } else {
-    //            print("File read error")
-    //        }
-    //        
-    //        return false
-    //    }
     
 }

@@ -10,6 +10,10 @@ import Foundation
 
 class StreamReader  {
     
+    struct Constants {
+        static let delimiter = "\r"
+    }
+    
     let encoding : UInt
     let chunkSize : Int
     
@@ -19,12 +23,12 @@ class StreamReader  {
     var atEof : Bool = false
     
     
-    init?(path: String, delimiter: String = "\n", encoding : UInt = NSUTF8StringEncoding, chunkSize : Int = 4096) {
+    init?(path: String, encoding : UInt = NSUTF8StringEncoding, chunkSize : Int = 4096) {
         self.chunkSize = chunkSize
         self.encoding = encoding
         
         if let fileHandle = NSFileHandle(forReadingAtPath: path),
-            delimData = delimiter.dataUsingEncoding(encoding),
+            delimData = Constants.delimiter.dataUsingEncoding(encoding),
             buffer = NSMutableData(capacity: chunkSize)
         {
             self.fileHandle = fileHandle
