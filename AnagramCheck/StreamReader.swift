@@ -11,7 +11,7 @@ import Foundation
 class StreamReader  {
     
     struct Constants {
-        static let delimiter = "\r"
+        static let delimiter = "\r\n"
     }
     
     let encoding : UInt
