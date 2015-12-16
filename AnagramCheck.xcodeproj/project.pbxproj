@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC6337E51C220A35007924F3 /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6337E41C220A35007924F3 /* HashTable.swift */; };
+		CC6337E71C220A73007924F3 /* HashNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6337E61C220A73007924F3 /* HashNode.swift */; };
 		CCD0D1801C08212D00E792A1 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = CCD0D17F1C08212D00E792A1 /* words.txt */; };
 		CCD0D1821C0824BC00E792A1 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0D1811C0824BC00E792A1 /* StreamReader.swift */; };
 		CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0141C067D8200FA10F2 /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC6337E41C220A35007924F3 /* HashTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
+		CC6337E61C220A73007924F3 /* HashNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashNode.swift; sourceTree = "<group>"; };
 		CCD0D17F1C08212D00E792A1 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		CCD0D1811C0824BC00E792A1 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 		CCE5E00F1C067D8200FA10F2 /* AnagramCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnagramCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,8 @@
 				CCE5E0341C0684F500FA10F2 /* ResultViewController.swift */,
 				CCE5E0181C067D8200FA10F2 /* Main.storyboard */,
 				CCE5E0361C06900600FA10F2 /* AnagramCheck.swift */,
+				CC6337E41C220A35007924F3 /* HashTable.swift */,
+				CC6337E61C220A73007924F3 /* HashNode.swift */,
 				CCD0D1811C0824BC00E792A1 /* StreamReader.swift */,
 				CCE5E0121C067D8200FA10F2 /* Supporting Files */,
 			);
@@ -231,6 +237,8 @@
 				CCE5E0171C067D8200FA10F2 /* MainViewController.swift in Sources */,
 				CCE5E0151C067D8200FA10F2 /* AppDelegate.swift in Sources */,
 				CCE5E0371C06900600FA10F2 /* AnagramCheck.swift in Sources */,
+				CC6337E71C220A73007924F3 /* HashNode.swift in Sources */,
+				CC6337E51C220A35007924F3 /* HashTable.swift in Sources */,
 				CCE5E0351C0684F500FA10F2 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
