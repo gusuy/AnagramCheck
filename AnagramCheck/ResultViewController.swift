@@ -66,6 +66,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - UITableViewDelegate Methods
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
@@ -74,9 +75,11 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return anagramCheck.anagrams.count
     }
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

@@ -18,6 +18,7 @@ class StreamReader  {
     let delimData : NSData!
     var atEof : Bool = false
     
+    
     init?(path: String, delimiter: String = "\n", encoding : UInt = NSUTF8StringEncoding, chunkSize : Int = 4096) {
         self.chunkSize = chunkSize
         self.encoding = encoding
@@ -37,11 +38,13 @@ class StreamReader  {
         }
     }
     
+    
     deinit {
         self.close()
     }
     
-    /// Return next line, or nil on EOF.
+    
+    // Return next line, or nil on EOF.
     func nextLine() -> String? {
         precondition(fileHandle != nil, "Attempt to read from closed file")
         
@@ -79,14 +82,16 @@ class StreamReader  {
         return line as String?
     }
     
-    /// Start reading from the beginning of file.
+    
+    // Start reading from the beginning of file.
     func rewind() -> Void {
         fileHandle.seekToFileOffset(0)
         buffer.length = 0
         atEof = false
     }
     
-    /// Close the underlying file. No reading must be done after calling this method.
+    
+    // Close the underlying file. No reading must be done after calling this method.
     func close() -> Void {
         fileHandle?.closeFile()
         fileHandle = nil

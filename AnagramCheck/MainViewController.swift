@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITextFieldDelegate {
     // May add phrase evaluation
-    // TODO: Optimize for larger words - fastest way to get all permutations of word
+    // TODO: Optimize for larger words - implement hash table
     
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!    // Constraint of bottom label to move up with keyboard
@@ -40,6 +40,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Hide/Show keyboard methods
     
+    
     // Move bottom label up when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
         if !keyboardIsShown {
@@ -54,6 +55,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     // Return bottom label when keyboard hides
     func keyboardWillHide(notification: NSNotification) {
         if keyboardIsShown {
@@ -66,10 +68,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     // Hide keyboard when view is touched
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
+    
     
     // UITextFieldDelegate Method
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -79,6 +83,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - Segue methods
+    
     
     // Passes this instance of AnagramCheck to dest VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -94,6 +99,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     
     // If user tries to input invalid string, deny segue and display message
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {

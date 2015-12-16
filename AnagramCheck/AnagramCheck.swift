@@ -39,6 +39,8 @@ class AnagramCheck {
         }
     }
     
+    
+    // TODO: Remove this and implement hash table for faster checks
     // Iterative binary search to check if word exists
     private func checkWord (var word: String) -> Bool {
         var first = 0
@@ -61,6 +63,7 @@ class AnagramCheck {
         return false
     }
     
+    
     // Loads the text file into an array of strings
     func loadWords() {
         var filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
@@ -75,6 +78,7 @@ class AnagramCheck {
             print("File read error")
         }
     }
+    
     
     // MARK: - Extra code
     
