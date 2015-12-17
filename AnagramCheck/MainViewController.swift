@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITextFieldDelegate {
     // May add phrase evaluation
+    // Turn off autocorrect
     // TODO: Optimize for larger words - implement hash table
     
     @IBOutlet weak var wordTextField: UITextField!

@@ -10,7 +10,13 @@ import Foundation
 
 class HashNode {
 
-    var word = String()
-    var nextNode = HashNode()
+    var word: String
+    var nextNode: HashNode?
+    
+    
+    init(word: String) {
+        self.word = word
+        nextNode = nil
+    }
 
 }
