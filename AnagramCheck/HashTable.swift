@@ -9,6 +9,7 @@
 import Foundation
 
 class HashTable {
+    // TODO: Improve hash function
     
     struct Constants {
         // Number of words in txt file = 172820
@@ -30,14 +31,13 @@ class HashTable {
     private func hashFunction(word: String) -> Int {
         var hash = 7
         
-        // 71,387 collisions, 16-17s
+        // 71,387 collisions
         for var i = 0; i < word.characters.count; i++ {
             hash = hash*3 + Int(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
             
         }
         
         hash = hash % Constants.tableSize
-        //print(hash)
         
         return hash
     }
