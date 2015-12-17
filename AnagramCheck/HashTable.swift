@@ -17,32 +17,32 @@ class HashTable {
     }
     
     var buckets: [HashNode?]
-    var collisions = Int()
+    var collisions: Int
     
     
     init() {
         buckets = [HashNode?](count: Constants.tableSize, repeatedValue: nil)
-        readFile()
+        collisions = Int()
     }
     
     
     
-    func hashFunction(word: String) -> Int {
+    private func hashFunction(word: String) -> Int {
         var hash = 7
         
+        // 71,387 collisions, 16-17s
         for var i = 0; i < word.characters.count; i++ {
             hash = hash*3 + Int(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
             
         }
         
         hash = hash % Constants.tableSize
-        print(hash)
+        //print(hash)
         
         return hash
     }
     
     
-    // Reads the txt file word by word
     func readFile() {
         if let streamReader = StreamReader(path: Constants.filePath!) {
             defer { streamReader.close() }
@@ -58,16 +58,34 @@ class HashTable {
     
     private func addToTable(word: String) {
         let thisNode = HashNode(word: word)
-        print(word)
         let hashValue = hashFunction(word)
+        let destNode = buckets[hashValue]
         
-        if buckets[hashValue] != nil {
-            collisions++
-            thisNode.nextNode = buckets[hashValue]
+        if destNode != nil {
+            thisNode.nextNode = destNode
         }
         
         buckets[hashValue] = thisNode
     }
     
+    
+    func checkWord(word: String) -> Bool {
+        let hashValue = hashFunction(word)
+        var node = buckets[hashValue]
+        
+        if node == nil {
+            return false
+        }
+        
+        while node != nil {
+            print("repeated")
+            if node!.word == word {
+                return true
+            }
+            node = node!.nextNode
+        }
+        
+        return false
+    }
     
 }

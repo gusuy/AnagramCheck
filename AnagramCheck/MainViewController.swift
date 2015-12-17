@@ -22,6 +22,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     var keyboardIsShown = false                                 // Tracks state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +36,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
-        anagramCheck.loadWords()
+        //anagramCheck.loadWords()
+        anagramCheck.hashTable.readFile()
     }
     
     
