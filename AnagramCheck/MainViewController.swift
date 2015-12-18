@@ -37,6 +37,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         //anagramCheck.loadWords()
         anagramCheck.hashTable.readFile()
+        print(anagramCheck.hashTable.collisions)
     }
     
     

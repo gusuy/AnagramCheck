@@ -13,7 +13,7 @@ class HashTable {
     
     struct Constants {
         // Number of words in txt file = 172820
-        static let tableSize = 224669               // Prime number close to (num words in txt file * 1.3)
+        static let tableSize = 345643
         static let filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
     }
     
@@ -27,19 +27,17 @@ class HashTable {
     }
     
     
-    
+    // Using djb2 hash algorithm
     private func hashFunction(word: String) -> Int {
-        var hash = 7
+        var hash:UInt = 5381
         
-        // 71,387 collisions
         for var i = 0; i < word.characters.count; i++ {
-            hash = hash*3 + Int(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
-            
+            hash = ((hash << 5) &+ hash) &+ UInt(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
         }
         
-        hash = hash % Constants.tableSize
+        hash = hash % UInt(Constants.tableSize)
         
-        return hash
+        return Int(hash)
     }
     
     
@@ -62,6 +60,7 @@ class HashTable {
         let destNode = buckets[hashValue]
         
         if destNode != nil {
+            collisions++
             thisNode.nextNode = destNode
         }
         
@@ -78,7 +77,6 @@ class HashTable {
         }
         
         while node != nil {
-            print("repeated")
             if node!.word == word {
                 return true
             }
