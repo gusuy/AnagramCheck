@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController, UITextFieldDelegate {
     // May add phrase evaluation
-    // Turn off autocorrect
     
     @IBOutlet weak private var wordTextField: UITextField!
     @IBOutlet weak private var bottomConstraint: NSLayoutConstraint!    // Bottom constraint of bottom label to move up with keyboard
@@ -45,7 +44,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Move bottom label up when keyboard shows
-    private func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(notification: NSNotification) {
         if !keyboardIsShown {
             keyboardIsShown = true
 
@@ -60,7 +59,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Return bottom label when keyboard hides
-    private func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(notification: NSNotification) {
         if keyboardIsShown {
             keyboardIsShown = false
             
