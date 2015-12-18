@@ -11,11 +11,12 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // May make cells clickable, show definition
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var resultLabel: UILabel!
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
     
     var anagramCheck = AnagramCheck()
+    
     
     
     override func viewDidLoad() {

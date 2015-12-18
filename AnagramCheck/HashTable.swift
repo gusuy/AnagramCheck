@@ -17,7 +17,7 @@ class HashTable {
         static let filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
     }
     
-    var buckets: [HashNode?]
+    private var buckets: [HashNode?]                    // Hash table structured with array of linked lists
     var collisions: Int
     
     
@@ -27,20 +27,8 @@ class HashTable {
     }
     
     
-    // Using djb2 hash algorithm
-    private func hashFunction(word: String) -> Int {
-        var hash:UInt = 5381
-        
-        for var i = 0; i < word.characters.count; i++ {
-            hash = ((hash << 5) &+ hash) &+ UInt(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
-        }
-        
-        hash = hash % UInt(Constants.tableSize)
-        
-        return Int(hash)
-    }
     
-    
+    // Read words from txt file and call addToTable for each
     func readFile() {
         if let streamReader = StreamReader(path: Constants.filePath!) {
             defer { streamReader.close() }
@@ -54,6 +42,7 @@ class HashTable {
     }
     
     
+    // Add node to bucket array using hash value as index
     private func addToTable(word: String) {
         let thisNode = HashNode(word: word)
         let hashValue = hashFunction(word)
@@ -68,6 +57,21 @@ class HashTable {
     }
     
     
+    // Compute hash value using djb2 hash algorithm
+    private func hashFunction(word: String) -> Int {
+        var hash:UInt = 5381
+        
+        for var i = 0; i < word.characters.count; i++ {
+            hash = ((hash << 5) &+ hash) &+ UInt(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
+        }
+        
+        hash = hash % UInt(Constants.tableSize)
+        
+        return Int(hash)
+    }
+    
+    
+    // Return true if the passed string is in the hash table
     func checkWord(word: String) -> Bool {
         let hashValue = hashFunction(word)
         var node = buckets[hashValue]

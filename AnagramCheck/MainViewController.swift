@@ -12,13 +12,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     // May add phrase evaluation
     // Turn off autocorrect
     
-    @IBOutlet weak var wordTextField: UITextField!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!    // Constraint of bottom label to move up with keyboard
+    @IBOutlet weak private var wordTextField: UITextField!
+    @IBOutlet weak private var bottomConstraint: NSLayoutConstraint!    // Bottom constraint of bottom label to move up with keyboard
     
-    var anagramCheck = AnagramCheck()
-    var alert = UIAlertController(title: "Error", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-    var originalBottomConstraintConstant = CGFloat()
-    var keyboardIsShown = false                                 // Tracks state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
+    private var anagramCheck = AnagramCheck()
+    private var alert = UIAlertController(title: "Error", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+    private var originalBottomConstraintConstant = CGFloat()            // Reset bottom label position when keyboard hides
+    private var keyboardIsShown = false                                 // Track state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
     
     
     
@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Move bottom label up when keyboard shows
-    func keyboardWillShow(notification: NSNotification) {
+    private func keyboardWillShow(notification: NSNotification) {
         if !keyboardIsShown {
             keyboardIsShown = true
 
@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Return bottom label when keyboard hides
-    func keyboardWillHide(notification: NSNotification) {
+    private func keyboardWillHide(notification: NSNotification) {
         if keyboardIsShown {
             keyboardIsShown = false
             
