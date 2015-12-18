@@ -9,7 +9,7 @@
 import Foundation
 
 class HashTable {
-    // TODO: Improve hash function
+    // TODO: Reduce number of collisions
     
     struct Constants {
         // Number of words in txt file = 172820
