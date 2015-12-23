@@ -61,8 +61,8 @@ class HashTable {
     private func hashFunction(word: String) -> Int {
         var hash:UInt = 5381
         
-        for var i = 0; i < word.characters.count; i++ {
-            hash = ((hash << 5) &+ hash) &+ UInt(word.unicodeScalars[word.unicodeScalars.startIndex.advancedBy(i)].value)
+        for char in word.unicodeScalars {
+            hash = ((hash << 5) &+ hash) &+ UInt(char.value)
         }
         
         hash = hash % UInt(Constants.tableSize)
