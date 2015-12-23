@@ -31,6 +31,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         originalBottomConstraintConstant = bottomConstraint.constant
         
         wordTextField.delegate = self
+        wordTextField.autocorrectionType = UITextAutocorrectionType.No
+        wordTextField.autocapitalizationType = UITextAutocapitalizationType.None
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         

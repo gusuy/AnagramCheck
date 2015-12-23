@@ -10,7 +10,6 @@ import UIKit
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // May make cells clickable, show definition
-    // Turn off autocorrect?
     
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var resultLabel: UILabel!
