@@ -36,7 +36,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
-        anagramCheck.hashTable.readFile()
+        anagramCheck.readFile()
         print(anagramCheck.hashTable.collisions)
     }
     

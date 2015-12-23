@@ -10,6 +10,12 @@ import Foundation
 
 class AnagramCheck {
     
+    struct Constants {
+        // Number of words in txt file = 172820
+        static let tableSize = 345643
+        static let filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
+    }
+    
     var hashTable: HashTable
     var word: String                // Store user input
     var anagrams: [String]          // Hold the resulting anagrams if any
@@ -17,7 +23,7 @@ class AnagramCheck {
     
     
     init() {
-        hashTable = HashTable()
+        hashTable = HashTable(tableSize: Constants.tableSize)
         word = String()
         anagrams = [String]()
         isWord = false
@@ -45,6 +51,20 @@ class AnagramCheck {
             for var i = 0; i < stringSize; i++ {
                 evaluateWord(s1 + String(s2[s2.startIndex.advancedBy(i)]), s2: s2.substringToIndex(s2.startIndex.advancedBy(i)) + s2.substringFromIndex(s2.startIndex.advancedBy(i+1)))
             }
+        }
+    }
+    
+    
+    // Read words from txt file and add to hash table
+    func readFile() {
+        if let streamReader = StreamReader(path: Constants.filePath!) {
+            defer { streamReader.close() }
+            while let line = streamReader.nextLine() {
+                hashTable.addToTable(line)
+            }
+        }
+        else {
+            print("File read error")
         }
     }
     
