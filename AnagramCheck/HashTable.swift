@@ -10,6 +10,7 @@ import Foundation
 
 class HashTable {
     // TODO: Reduce number of collisions
+    // Could use NSHashTable, but implementing own hash table allows me to play around with and compare different hash functions
     
     private var buckets: [HashNode?]                    // Hash table structured with array of linked lists
     var collisions: Int

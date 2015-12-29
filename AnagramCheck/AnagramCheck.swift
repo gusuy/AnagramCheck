@@ -9,6 +9,7 @@
 import Foundation
 
 class AnagramCheck {
+    // TODO: Retrieve words with definitions from SQLite DBMS instead of txt file
     
     struct Constants {
         // Number of words in txt file = 172820
