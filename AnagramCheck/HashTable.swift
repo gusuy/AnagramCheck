@@ -40,24 +40,30 @@ class HashTable {
     }
     
     
-    // Returns an array with all anagrams of the passed value
-    func getAnagrams(key: String, value: String) -> [String] {
+    // Returns an array with all anagrams of the passed value and true if the value is a word
+    func getAnagrams(key: String, value: String) -> (anagrams: [String], isWord: Bool) {
         let hashValue = hashFunction(key)
         var node = buckets[hashValue]
         var anagramArray = [String]()
+        var isWord = false
         
         if node == nil {
-            return anagramArray
+            return (anagramArray, isWord)
         }
         
         while node != nil {
-            if node!.sortedWord == key && node!.word != value {
-                anagramArray.append(node!.word)
+            if node!.sortedWord == key {
+                if node!.word != value {
+                    isWord = true
+                }
+                else {
+                    anagramArray.append(node!.word)
+                }
             }
             node = node!.nextNode
         }
         
-        return anagramArray
+        return (anagramArray, isWord)
     }
     
     
