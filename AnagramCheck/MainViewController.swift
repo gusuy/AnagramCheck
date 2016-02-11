@@ -37,7 +37,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
         anagramCheck.readFile()
-        print(anagramCheck.hashTable.collisions)
     }
     
     
@@ -90,13 +89,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     // Passes this instance of AnagramCheck to dest VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        anagramCheck.word = wordTextField.text!.lowercaseString
+        anagramCheck.setWord(wordTextField.text!.lowercaseString)
         
         if let identifier = segue.identifier {
             switch identifier {
             case "swipeLeftSegue":
                 if let resultVC = segue.destinationViewController as? ResultViewController {
-                    resultVC.anagramCheck = self.anagramCheck
+                    resultVC.setModel(anagramCheck)
                 }
             default: break
             }

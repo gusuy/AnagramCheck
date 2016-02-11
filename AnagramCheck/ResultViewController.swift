@@ -15,7 +15,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak private var resultLabel: UILabel!
     @IBOutlet weak private var loading: UIActivityIndicatorView!
     
-    var anagramCheck = AnagramCheck()
+    private var anagramCheck = AnagramCheck()
+    
+    
+    func setModel(model: AnagramCheck) {
+        anagramCheck = model
+    }
     
     
     
@@ -31,20 +36,20 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
             dispatch_async(dispatch_get_main_queue(), {
                 self.loading.stopAnimating()
                 self.tableView.reloadData()
-                if self.anagramCheck.isWord {
-                    if self.anagramCheck.anagrams.isEmpty {
-                        self.resultLabel.text = "\(self.anagramCheck.word) is not an anagram."
+                if self.anagramCheck.getIsWord() {
+                    if self.anagramCheck.isAnagram() {
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is an anagram."
                     }
                     else {
-                        self.resultLabel.text = "\(self.anagramCheck.word) is an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not an anagram."
                     }
                 }
                 else {
-                    if self.anagramCheck.anagrams.isEmpty {
-                        self.resultLabel.text = "\(self.anagramCheck.word) is not a word, and is not an anagram."
+                    if self.anagramCheck.isAnagram() {
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word, but is an anagram."
                     }
                     else {
-                        self.resultLabel.text = "\(self.anagramCheck.word) is not a word, but is an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word, and is not an anagram."
                     }
                 }
             })
@@ -68,14 +73,14 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = anagramCheck.anagrams[indexPath.row]
+        cell.textLabel?.text = anagramCheck.getAnagrams()[indexPath.row]
         
         return cell
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return anagramCheck.anagrams.count
+        return anagramCheck.getAnagrams().count
     }
     
     

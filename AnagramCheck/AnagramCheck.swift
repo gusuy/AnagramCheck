@@ -16,10 +16,10 @@ class AnagramCheck {
         static let filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
     }
     
-    var hashTable: HashTable
-    var word: String                // Store user input
-    var anagrams: [String]          // Hold the resulting anagrams if any
-    var isWord:Bool                 // True if user input is a valid word
+    private var hashTable: HashTable
+    private var word: String                // Store user input
+    private var anagrams: [String]          // Hold the resulting anagrams if any
+    private var isWord:Bool                 // True if user input is a valid word
     
     
     init() {
@@ -30,6 +30,9 @@ class AnagramCheck {
     }
     
     
+    func getAnagrams() -> [String] {
+        return anagrams
+    }
     
     // Fills the anagram array and sets isWord
     func setAnagrams() {
@@ -46,7 +49,31 @@ class AnagramCheck {
             }
         }
     }
+    
+    
+    func getIsWord() -> Bool {
+        return isWord
+    }
+    
+    
+    func getWord() -> String {
+        return word
+    }
+    
+    func setWord(word: String) {
+        self.word = word
+    }
+    
+    
+    
+    func isAnagram() -> Bool {
+        if anagrams.isEmpty {
+            return false
+        }
         
+        return true
+    }
+    
     
     // Read words from txt file and add to hash table
     // When adding words to hash table, passes sorted string as the key since all anagrams are the same string when sorted
@@ -64,8 +91,9 @@ class AnagramCheck {
     }
     
     
+    
     // Sorts a string alphabetically
-    func sortString(word: String) -> String{
+    private func sortString(word: String) -> String{
         let charArray = Array(word.characters)
         let sortedCharArray = charArray.sort( { $0 < $1 } )
         return String(sortedCharArray)

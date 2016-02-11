@@ -13,7 +13,7 @@ class HashTable {
     // Could use NSHashTable, but implementing own hash table allows for testing and comparing different hash functions
     
     private var buckets: [HashNode?]                    // Hash table structured with array of linked lists
-    var collisions: Int
+    private var collisions: Int
     private var tableSize: Int
     
     
@@ -21,6 +21,11 @@ class HashTable {
         buckets = [HashNode?](count: tableSize, repeatedValue: nil)
         collisions = Int()
         self.tableSize = tableSize
+    }
+    
+    
+    func getCollisions() -> Int {
+        return collisions
     }
     
     
