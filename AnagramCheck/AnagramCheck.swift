@@ -68,4 +68,11 @@ class AnagramCheck {
     }
     
     
+    // Sorts a string
+    func sortString(word: String) -> String{
+        let charArray = Array(word.characters)
+        let sortedCharArray = charArray.sort( { $0 < $1 } )
+        return String(sortedCharArray)
+    }
+    
   }
