@@ -32,34 +32,20 @@ class AnagramCheck {
     
     
     
-    // Permute all possible letter orders of word using recursion and add valid words to anagram array
-    func evaluateWord (s1: String, s2: String) {
-        let stringSize = s2.characters.count
-        if stringSize < 1 {
-            if hashTable.checkWord(s1) && !anagrams.contains(s1) {
-                // If it's the original word, don't include in list of anagrams
-                if word == s1 {
-                    isWord = true
-                }
-                else {
-                    anagrams.append(s1)
-                }
-            }
-        }
-        else {
-            for var i = 0; i < stringSize; i++ {
-                evaluateWord(s1 + String(s2[s2.startIndex.advancedBy(i)]), s2: s2.substringToIndex(s2.startIndex.advancedBy(i)) + s2.substringFromIndex(s2.startIndex.advancedBy(i+1)))
-            }
-        }
+    // Fills the anagram array and sets isWord
+    func setAnagrams() {
+        let results = hashTable.getAnagrams(sortString(word), value: word)
+        self.anagrams = results.anagrams
+        self.isWord = results.isWord
     }
-    
+        
     
     // Read words from txt file and add to hash table
     func readFile() {
         if let streamReader = StreamReader(path: Constants.filePath!) {
             defer { streamReader.close() }
             while let line = streamReader.nextLine() {
-                hashTable.addToTable(line)
+                hashTable.addToTable(sortString(line), value: line)
             }
         }
         else {
@@ -67,5 +53,12 @@ class AnagramCheck {
         }
     }
     
+    
+    // Sorts a string
+    func sortString(word: String) -> String{
+        let charArray = Array(word.characters)
+        let sortedCharArray = charArray.sort( { $0 < $1 } )
+        return String(sortedCharArray)
+    }
     
   }
