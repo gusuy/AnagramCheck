@@ -26,9 +26,9 @@ class HashTable {
     
     
     // Add node to bucket array using hash value as index
-    func addToTable(word: String) {
-        let thisNode = HashNode(word: word)
-        let hashValue = hashFunction(word)
+    func addToTable(key: String, value: String) {
+        let thisNode = HashNode(word: value)
+        let hashValue = hashFunction(key)
         let destNode = buckets[hashValue]
         
         if destNode != nil {
