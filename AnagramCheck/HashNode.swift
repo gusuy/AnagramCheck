@@ -11,13 +11,13 @@ import Foundation
 class HashNode {
 
     var word: String
-    var sortedWord: String
+    var key: String                                 // Key will be the word sorted alphabetically
     var nextNode: HashNode?
     
     
     init(word: String, sortedWord: String) {
         self.word = word
-        self.sortedWord = sortedWord
+        self.key = sortedWord
         nextNode = nil
     }
 

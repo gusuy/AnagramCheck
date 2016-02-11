@@ -9,7 +9,6 @@
 import Foundation
 
 class AnagramCheck {
-    // TODO: Retrieve words with definitions from SQLite DBMS instead of txt file
     
     struct Constants {
         // Number of words in txt file = 172820
@@ -34,13 +33,24 @@ class AnagramCheck {
     
     // Fills the anagram array and sets isWord
     func setAnagrams() {
-        let results = hashTable.getAnagrams(sortString(word), value: word)
-        self.anagrams = results.anagrams
-        self.isWord = results.isWord
+        anagrams.removeAll()
+        isWord = false
+        
+        let values = hashTable.getValuesWithKey(sortString(word))
+        for value: String in values {
+            if value == word {
+                isWord = true
+            }
+            else {
+                anagrams.append(value)
+            }
+        }
     }
         
     
     // Read words from txt file and add to hash table
+    // When adding words to hash table, passes sorted string as the key since all anagrams are the same string when sorted
+    // Therefore, all anagrams have the same key and get placed in the same bucket of the hash table for fast retrieval
     func readFile() {
         if let streamReader = StreamReader(path: Constants.filePath!) {
             defer { streamReader.close() }
@@ -54,7 +64,7 @@ class AnagramCheck {
     }
     
     
-    // Sorts a string
+    // Sorts a string alphabetically
     func sortString(word: String) -> String{
         let charArray = Array(word.characters)
         let sortedCharArray = charArray.sort( { $0 < $1 } )

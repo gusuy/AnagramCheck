@@ -24,9 +24,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         loading.startAnimating()
         
-        // Clear anagram array before filling
-        anagramCheck.anagrams.removeAll()
-        
         // Evaluate word in separate queue
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
             self.anagramCheck.setAnagrams()

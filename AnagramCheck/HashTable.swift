@@ -10,7 +10,7 @@ import Foundation
 
 class HashTable {
     // TODO: Reduce number of collisions
-    // Could use NSHashTable, but implementing own hash table allows me to play around with and compare different hash functions
+    // Could use NSHashTable, but implementing own hash table allows for testing and comparing different hash functions
     
     private var buckets: [HashNode?]                    // Hash table structured with array of linked lists
     var collisions: Int
@@ -40,30 +40,26 @@ class HashTable {
     }
     
     
-    // Returns an array with all anagrams of the passed value and true if the value is a word
-    func getAnagrams(key: String, value: String) -> (anagrams: [String], isWord: Bool) {
+    // Takes a key and returns all corresponding values
+    func getValuesWithKey(key: String) -> [String] {
         let hashValue = hashFunction(key)
         var node = buckets[hashValue]
-        var anagramArray = [String]()
-        var isWord = false
+        var values = [String]()
         
+        // No matches
         if node == nil {
-            return (anagramArray, isWord)
+            return values
         }
         
+        // Iterate through linked list and retrieve values where keys match
         while node != nil {
-            if node!.sortedWord == key {
-                if node!.word == value {
-                    isWord = true
-                }
-                else {
-                    anagramArray.append(node!.word)
-                }
+            if node!.key == key {
+                values.append(node!.word)
             }
             node = node!.nextNode
         }
         
-        return (anagramArray, isWord)
+        return values
     }
     
     
