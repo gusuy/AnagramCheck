@@ -32,9 +32,11 @@ class AnagramCheck {
     
     
     
-    // Fills the anagram array
+    // Fills the anagram array and sets isWord
     func setAnagrams() {
-        self.anagrams = hashTable.getAnagrams(sortString(word), value: word)
+        let results = hashTable.getAnagrams(sortString(word), value: word)
+        self.anagrams = results.anagrams
+        self.isWord = results.isWord
     }
     
 //    // Permute all possible letter orders of word using recursion and add valid words to anagram array
