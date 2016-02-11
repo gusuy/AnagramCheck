@@ -27,7 +27,7 @@ class HashTable {
     
     // Add node to bucket array using hash value as index
     func addToTable(key: String, value: String) {
-        let thisNode = HashNode(word: value)
+        let thisNode = HashNode(word: value, sortedWord: key)
         let hashValue = hashFunction(key)
         let destNode = buckets[hashValue]
         
@@ -40,31 +40,32 @@ class HashTable {
     }
     
     
-    // Return true if the passed string is in the hash table
-    func checkWord(word: String) -> Bool {
-        let hashValue = hashFunction(word)
+    // Returns an array with all anagrams of the passed value
+    func getAnagrams(key: String, value: String) -> [String] {
+        let hashValue = hashFunction(key)
         var node = buckets[hashValue]
+        var anagramArray = [String]()
         
         if node == nil {
-            return false
+            return anagramArray
         }
         
         while node != nil {
-            if node!.word == word {
-                return true
+            if node!.sortedWord == key && node!.word != value {
+                anagramArray.append(node!.word)
             }
             node = node!.nextNode
         }
         
-        return false
+        return anagramArray
     }
     
     
     // Compute hash value using djb2 hash algorithm
-    private func hashFunction(word: String) -> Int {
+    private func hashFunction(key: String) -> Int {
         var hash:UInt = 5381
         
-        for char in word.unicodeScalars {
+        for char in key.unicodeScalars {
             hash = ((hash << 5) &+ hash) &+ UInt(char.value)
         }
         
