@@ -29,8 +29,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Evaluate word in separate queue
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
-            self.anagramCheck.evaluateWord("", s2: self.anagramCheck.word)
-
+            self.anagramCheck.setAnagrams()
+            
             dispatch_async(dispatch_get_main_queue(), {
                 self.loading.stopAnimating()
                 self.tableView.reloadData()
