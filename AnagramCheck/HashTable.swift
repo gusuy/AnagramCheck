@@ -53,7 +53,7 @@ class HashTable {
         
         while node != nil {
             if node!.sortedWord == key {
-                if node!.word != value {
+                if node!.word == value {
                     isWord = true
                 }
                 else {
