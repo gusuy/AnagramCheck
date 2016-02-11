@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up keyboard show/hide notifications
+        // Set up keyboard show/hide notification observers
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
@@ -96,7 +96,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             switch identifier {
             case "swipeLeftSegue":
                 if let resultVC = segue.destinationViewController as? ResultViewController {
-                    resultVC.anagramCheck = anagramCheck
+                    resultVC.anagramCheck = self.anagramCheck
                 }
             default: break
             }

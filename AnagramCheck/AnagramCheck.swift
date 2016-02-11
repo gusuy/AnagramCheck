@@ -36,15 +36,13 @@ class AnagramCheck {
     func evaluateWord (s1: String, s2: String) {
         let stringSize = s2.characters.count
         if stringSize < 1 {
-            if hashTable.checkWord(s1) {
-                if !anagrams.contains(s1) {
-                    // If it's the original word, don't include in list of anagrams
-                    if word == s1 {
-                        isWord = true
-                    }
-                    else {
-                        anagrams.append(s1)
-                    }
+            if hashTable.checkWord(s1) && !anagrams.contains(s1) {
+                // If it's the original word, don't include in list of anagrams
+                if word == s1 {
+                    isWord = true
+                }
+                else {
+                    anagrams.append(s1)
                 }
             }
         }

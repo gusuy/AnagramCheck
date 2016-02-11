@@ -65,7 +65,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    // MARK: - UITableViewDelegate Methods
+    // MARK: - UITableViewDataSource Methods
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
