@@ -38,18 +38,18 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.tableView.reloadData()
                 if self.anagramCheck.getIsWord() {
                     if self.anagramCheck.isAnagram() {
-                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is an anagram"
                     }
                     else {
-                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not an anagram"
                     }
                 }
                 else {
                     if self.anagramCheck.isAnagram() {
-                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word, but is an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word, but is an anagram"
                     }
                     else {
-                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word, and is not an anagram."
+                        self.resultLabel.text = "\(self.anagramCheck.getWord()) is not a word"
                     }
                 }
             })
@@ -58,6 +58,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        // Hide excess cells
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     

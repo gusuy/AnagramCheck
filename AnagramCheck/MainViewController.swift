@@ -15,7 +15,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak private var bottomConstraint: NSLayoutConstraint!    // Bottom constraint of bottom label to move up with keyboard
     
     private var anagramCheck = AnagramCheck()
-    private var alert = UIAlertController(title: "Error", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+    private var alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
     private var originalBottomConstraintConstant = CGFloat()            // Reset bottom label position when keyboard hides
     private var keyboardIsShown = false                                 // Track state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
     
@@ -23,6 +23,8 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "AnagramCheck"
         
         // Set up keyboard show/hide notification observers
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
