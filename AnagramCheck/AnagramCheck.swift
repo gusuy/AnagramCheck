@@ -13,13 +13,13 @@ class AnagramCheck {
     struct Constants {
         // Number of words in txt file = 172820
         static let tableSize = 345643
-        static let filePath = NSBundle.mainBundle().pathForResource("words", ofType: "txt")
+        static let filePath = Bundle.main.path(forResource: "words", ofType: "txt")
     }
     
-    private var hashTable: HashTable
-    private var word: String                // Store user input
-    private var anagrams: [String]          // Hold the resulting anagrams if any
-    private var isWord:Bool                 // True if user input is a valid word
+    fileprivate var hashTable: HashTable
+    fileprivate var word: String                // Store user input
+    fileprivate var anagrams: [String]          // Hold the resulting anagrams if any
+    fileprivate var isWord:Bool                 // True if user input is a valid word
     
     
     init() {
@@ -60,7 +60,7 @@ class AnagramCheck {
         return word
     }
     
-    func setWord(word: String) {
+    func setWord(_ word: String) {
         self.word = word
     }
     
@@ -93,9 +93,9 @@ class AnagramCheck {
     
     
     // Sorts a string alphabetically
-    private func sortString(word: String) -> String{
+    fileprivate func sortString(_ word: String) -> String{
         let charArray = Array(word.characters)
-        let sortedCharArray = charArray.sort( { $0 < $1 } )
+        let sortedCharArray = charArray.sorted( by: { $0 < $1 } )
         return String(sortedCharArray)
     }
     

@@ -11,13 +11,13 @@ import UIKit
 class MainViewController: UIViewController, UITextFieldDelegate {
     // May add phrase evaluation
     
-    @IBOutlet weak private var wordTextField: UITextField!
-    @IBOutlet weak private var bottomConstraint: NSLayoutConstraint!    // Bottom constraint of bottom label to move up with keyboard
+    @IBOutlet weak fileprivate var wordTextField: UITextField!
+    @IBOutlet weak fileprivate var bottomConstraint: NSLayoutConstraint!    // Bottom constraint of bottom label to move up with keyboard
     
-    private var anagramCheck = AnagramCheck()
-    private var alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-    private var originalBottomConstraintConstant = CGFloat()            // Reset bottom label position when keyboard hides
-    private var keyboardIsShown = false                                 // Track state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
+    fileprivate var anagramCheck = AnagramCheck()
+    fileprivate var alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+    fileprivate var originalBottomConstraintConstant = CGFloat()            // Reset bottom label position when keyboard hides
+    fileprivate var keyboardIsShown = false                                 // Track state of keyboard to prevent issue of UIKeyboardWillShowNotification calling twice on device rotation while keyboard is already showing
     
     
     
@@ -27,16 +27,16 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = "AnagramCheck"
         
         // Set up keyboard show/hide notification observers
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         originalBottomConstraintConstant = bottomConstraint.constant
         
         wordTextField.delegate = self
-        wordTextField.autocorrectionType = UITextAutocorrectionType.No
-        wordTextField.autocapitalizationType = UITextAutocapitalizationType.None
+        wordTextField.autocorrectionType = UITextAutocorrectionType.no
+        wordTextField.autocapitalizationType = UITextAutocapitalizationType.none
         
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         
         anagramCheck.readFile()
     }
@@ -46,13 +46,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Move bottom label up when keyboard shows
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         if !keyboardIsShown {
             keyboardIsShown = true
 
-            let keyboardFrame: CGRect = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            let keyboardFrame: CGRect = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
             
-            UIView.animateWithDuration(0, animations: {
+            UIView.animate(withDuration: 0, animations: {
                 self.bottomConstraint.constant += keyboardFrame.size.height
                 self.view.layoutIfNeeded()
             })
@@ -61,11 +61,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Return bottom label when keyboard hides
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         if keyboardIsShown {
             keyboardIsShown = false
             
-            UIView.animateWithDuration(0, animations: {
+            UIView.animate(withDuration: 0, animations: {
                 self.bottomConstraint.constant = self.originalBottomConstraintConstant
                 self.view.layoutIfNeeded()
             })
@@ -74,13 +74,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Hide keyboard when view is touched
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
     
     // UITextFieldDelegate Method
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -90,13 +90,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // Passes this instance of AnagramCheck to dest VC
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        anagramCheck.setWord(wordTextField.text!.lowercaseString)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        anagramCheck.setWord(wordTextField.text!.lowercased())
         
         if let identifier = segue.identifier {
             switch identifier {
             case "swipeLeftSegue":
-                if let resultVC = segue.destinationViewController as? ResultViewController {
+                if let resultVC = segue.destination as? ResultViewController {
                     resultVC.setModel(anagramCheck)
                 }
             default: break
@@ -106,25 +106,25 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     // If user tries to input invalid string, deny segue and display message
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         // Check for empty text field
         if (wordTextField.text == "") {
             alert.message = "Enter a word"
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             
             return false
         }
         // Check for spaces
-        else if wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) != nil{
+        else if wordTextField.text!.rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines) != nil{
             alert.message = "No spaces allowed"
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             
             return false
         }
         // Check for non letter characters
-        else if wordTextField.text!.rangeOfCharacterFromSet(NSCharacterSet.letterCharacterSet().invertedSet) != nil {
+        else if wordTextField.text!.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
             alert.message = "Only letters allowed"
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             
             return false
         }

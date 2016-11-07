@@ -12,13 +12,13 @@ class HashTable {
     // TODO: Reduce number of collisions
     // Could use NSHashTable, but implementing own hash table allows for testing and comparing different hash functions
     
-    private var buckets: [HashNode?]                    // Hash table structured with array of linked lists
-    private var collisions: Int
-    private var tableSize: Int
+    fileprivate var buckets: [HashNode?]                    // Hash table structured with array of linked lists
+    fileprivate var collisions: Int
+    fileprivate var tableSize: Int
     
     
     init(tableSize: Int) {
-        buckets = [HashNode?](count: tableSize, repeatedValue: nil)
+        buckets = [HashNode?](repeating: nil, count: tableSize)
         collisions = Int()
         self.tableSize = tableSize
     }
@@ -31,13 +31,13 @@ class HashTable {
     
     
     // Add node to bucket array using hash value as index
-    func addToTable(key: String, value: String) {
+    func addToTable(_ key: String, value: String) {
         let thisNode = HashNode(word: value, sortedWord: key)
         let hashValue = hashFunction(key)
         let destNode = buckets[hashValue]
         
         if destNode != nil {
-            collisions++
+            collisions += 1
             thisNode.nextNode = destNode
         }
         
@@ -46,7 +46,7 @@ class HashTable {
     
     
     // Takes a key and returns all corresponding values
-    func getValuesWithKey(key: String) -> [String] {
+    func getValuesWithKey(_ key: String) -> [String] {
         let hashValue = hashFunction(key)
         var node = buckets[hashValue]
         var values = [String]()
@@ -69,7 +69,7 @@ class HashTable {
     
     
     // Compute hash value using djb2 hash algorithm
-    private func hashFunction(key: String) -> Int {
+    fileprivate func hashFunction(_ key: String) -> Int {
         var hash:UInt = 5381
         
         for char in key.unicodeScalars {

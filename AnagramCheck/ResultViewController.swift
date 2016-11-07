@@ -11,14 +11,14 @@ import UIKit
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // May make cells clickable, show definition
     
-    @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var resultLabel: UILabel!
-    @IBOutlet weak private var loading: UIActivityIndicatorView!
+    @IBOutlet weak fileprivate var tableView: UITableView!
+    @IBOutlet weak fileprivate var resultLabel: UILabel!
+    @IBOutlet weak fileprivate var loading: UIActivityIndicatorView!
     
-    private var anagramCheck = AnagramCheck()
+    fileprivate var anagramCheck = AnagramCheck()
     
     
-    func setModel(model: AnagramCheck) {
+    func setModel(_ model: AnagramCheck) {
         anagramCheck = model
     }
     
@@ -30,10 +30,10 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loading.startAnimating()
         
         // Evaluate word in separate queue
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
             self.anagramCheck.setAnagrams()
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.loading.stopAnimating()
                 self.tableView.reloadData()
                 if self.anagramCheck.getIsWord() {
@@ -57,36 +57,36 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Hide excess cells
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     
     // To have swipe-to-previous view controller work on the UITableView
-    @IBAction func goBack(sender: UISwipeGestureRecognizer) {
-        navigationController?.popViewControllerAnimated(true)
+    @IBAction func goBack(_ sender: UISwipeGestureRecognizer) {
+        navigationController?.popViewController(animated: true)
     }
     
     
     // MARK: - UITableViewDataSource Methods
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = anagramCheck.getAnagrams()[indexPath.row]
+        cell.textLabel?.text = anagramCheck.getAnagrams()[(indexPath as NSIndexPath).row]
         
         return cell
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return anagramCheck.getAnagrams().count
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
